@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ching (Jean) Liu</title>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<!-- Title -->
+	<header>
+		<div class="container">
+			<h2>CoCoKUA (叩叩看)</h2>
+			<h4>On-video Realtime Interaction via Synchronous Video Annotation</h4>
+			<p>2016-2017, Demo on TAICHI’16</p>
+			<p>Website: <a href="https://letsyoutube.herokuapp.com/" style="text-decoration: none; color:white">https://letsyoutube.herokuapp.com/</a></p>
+			<img src="images/CoCoKUA/teaser.png"/>
+		</div>
+		
+	</header>
+<div class="container">
+		<section>
+			<h2>Goal</h2>
+
+			<p>In this project, we explore design to support interaction in the distance when people watch videos together.</p>
+		</section>
+
+		<section>
+		<h2>Background</h2>
+
+			<p>With the prevalence of live video streaming (i.e., live broadcasting of ongoing events to a large group of audiences), people have increasing opportunities to watch videos online than before, leading to a new opportunity of online social interaction.</p>
+
+			<p>The majority of video streaming interfaces (e.g., Youtube, Facebook) enable audiences to add comments in heterogeneous formats such as texts, hyperlinks and images, which are usually placed under or beside the player.</p>
+			<p>Some platforms afford time-anchored commenting, allowing users to anchor comments to the video according to the time that they were generated.</p>
+			<p>Learning from previous research, it’s becoming clearer that real-time interactions can enhance people’s video watching experience by increasing the perceptions of togetherness and responsiveness.</p>
+			<p>However, distance video watchers still can’t quickly share their idea by pointing on the screen while speaking to others just like what they can do in face-to-face, co-located situations. Besides, there are certain intents people cannot communicate with one another using text easily. In face-to-face settings, we might see a person point to the screen and say “Look at that guy!” with a super big motion to express his surprise on a specific character. To do that in the context of social video watching, he might need to type many words (“Hey, look at that guy on the top-left corner!!! He is holding a gun!!!”) to express the same meaning, but his partner might not even have time to read all the words before the reference scene disappeared.</p>
+		</section>
+<!-- Design -->
+		<section>
+		<h2>Design</h2>
+		<p>Overall, CoCoKUA is a web-based video player that integrates synchronous video playback, text chat, and real-time on-video annotations.</p>
+		<div class="d-flex justify-content-between">
+			<div class="p-2">
+				<img src="images/CoCoKUA/video-sync.png">
+			</div>
+			<div class="p-2">
+				<img src="images/CoCoKUA/annotation-sync.png">
+			</div>
+			<div class="p-2">
+				<img src="images/CoCoKUA/annotations.png">
+			</div>
+		</div>
+		<div class="d-flex justify-content-between">
+			<div class="p-2">
+				<p>Synchornized video player</p>
+			</div>
+			<div class="p-2">
+				<p>Synchornized on-video annotations</p>
+			</div>
+			<div class="p-2">
+				<p>Diverse annotation tools</p>
+			</div>
+		</div>
+		<p>We first extend the existing design of time-anchored comments into time- and space- anchored comments, that is, allowing users not only to leave comments on a specific playback time but also a specific position of the video. This may people better communicate the subject of a comment. Comments are designed as digital stamps that people can change their color or size and allows multiple stamping.</p>
+		<p>Besides texts, we also provide digital-ink and stickers. Stickers, powerful emotion and action representation in the messaging context, can help people efficiently express their feeling, and that shows an opportunity to empower people effectively share their feeling on the video content.</p>
+	</section>
+<!-- Implementation -->
+	<section>
+		<h2>Implementation</h2>
+		<p>CoCoKUA utilizes Pubnub API to implement peer-to-peer YouTube video synchronization as well as the data transfer of annotations and chat messages.</p>
+		<p>Video annotations are sent as JSON object including the information of their on-frame positions, which will be processed on each client side and showed on the HTML5 canvas covering over the video. The annotations will be erased automatically in 2 seconds, but continuous click on the canvas will reset the timer. In this way, users are allowed to annotate wherever they want on the video frame without pausing the video, which fulﬁll the real-time on-video interaction utility.</p>
+		
+	</section>
+<!-- Evaluation -->
+	<section>
+		<h2>Evaluation</h2>
+		
+		<h4>Participants</h4>
+		<p>We conducted a lab-based experiment with 34 people, 15 females and 19 males, age ranged from 15 to 30 years old. Participants were divided into 13 groups. The number of people within a group ranged from 2 to 5, with 7 combinations acquainted with each other and 6 combinations consisted with strangers.</p>
+		
+		<h4>Materials</h4>
+		<p>During the experiment, each group watched two 15 - 20 minutes videos chosen from 4 types: Educational Ted videos, Cartoons, Entertainment TV shows, and NBA sports games, depending on their preferences.</p>
+		
+		<h4>Settings</h4>
+		<p>All the participants used computers in the lab with seen recording during the test. The headset was used for listening the audio track and participants were arranged to different seats so they couldn’t hear or see each other.</p>
+		<h3><a id="Procedure_53"></a>Procedure</h3>
+		<p>First, participants were taught to be familiar with the tool. Then, they freely watched two videos and interacted with each other using CoCoCUA. After ﬁnished two videos, they were asked to ﬁll in a web-based questionnaire and were interviewed afterward. The questionnaire consists of two parts: the former experiences of watching videos together and the feeling after they watched two videos using CoCoKUA. For understanding their former experiences, the questionnaire asked questions about what platform they use, what kinds of videos they watch, and how did they feel in three situations: watching singly, watching a video with others in the same place, and watching together on online platforms. To measure the experience they use CoCoKUA, participants are asked to rate for the aggregate feeling and their favor to the interactive functions provided in our system. They are asked to rate on 5 point scale (1: completely not like; 5: like very much).</p>
+		
+		<h4>Results</h4>
+		<p>About our participants’ prior experience:</p>
+		<ul>
+		<li>91% (31 people out of 34 participants) have watch videos with others in a co-located situation, while 53% (18 people out of 34 participants) have watched videos with others using online platforms, including Twitch, YouTube live house, Facebook.</li>
+		<li>When they watch videos together and in distance, the chat room is most commonly used for communication. Some of them also mentioned using audio call and danmaku.</li>
+		<li>The triggers for remote video co-watching includes (1) interesting videos that worth for sharing (2) live streaming videos, especially sports games (3) videos that belong to people’s common interest (4) moments that people want to experience social interaction, like sharing emotion or killing time together</li>
+		<li>Moments that people don’t want to watch videos with others, including time (1) when people want to focus on a video without interrupted (2) when people consider a video they want to watch is sad or boring (3) when people expect to rewind a video.</li>
+		</ul>
+		<p>How did people utilize CoCoKUA?</p>
+		<ul>
+		<li>They anchored annotations on top of a specific object or character to express emotion or opinion on it. Beside referencing to a specific position, they also referenced to an abstract concept in the video (e.g., a team in a sports game) using position (generally left or right) or color.</li>
+		<li>When watching an educational video, participants usually discuss in chat area but sharing informal messages on the video. In our pilot study, we compared two groups watching the same educational video and only informed one of them to summarize the content. The group assigned to summarize used text message collaboratively to write down key points. The other, however, having fun using on-video annotations.</li>
+		<li>We observed that users tend to use the same tool to reply to the existing annotations. For example, they would use stickers to reply to others’ stickers instead of other tools.</li>
+		<li>People showed incredible creativity when watching Cartoons. We discovered that users develop unique ways to enrich the video contents. For example, use on-video text to make onomatopoeia, draw a character, add special effect to expand the dramatic plot.</li>
+		<li>People use bigger annotations or create combo annotations to express stronger emotion.<br>
+		Some people even use annotations to play games (e.g., Tic-Tac-Toe) during boring parts of the video.</li>
+		<li>On-video annotations are created about two times more than chat messages.</li>
+		</ul>
+		<p>Experience in using CoCoKUA:</p>
+		<ul>
+		<li>Most people feel happy to be able to interact with others using on-video annotations: ‘I can use CoCoKUA during the boring part in the video.‘ , ‘It is easier to interact with each other.‘, ‘I can share my feeling with my friends immediately.‘, “I can use special ways to express my support to the sports team, which is great.”</li>
+		<li>They also indicate a major limitation of on-video interaction, that is, annotations can easily distract video watching process: “I kept playing with different functions and didn’t focus on the video”, “The texts and stickers blocked the video”</li>
+		<li>The number of group members signiﬁcantly inﬂuence the integral experience (F(1, 57)=15.01, p &lt; 0.001), which might indicate that interruption becomes severe as the number of involved people grows.</li>
+		</ul>
+	</section>
+</div>
+</body>
+</html>
